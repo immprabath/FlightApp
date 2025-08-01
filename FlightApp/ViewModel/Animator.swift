@@ -7,12 +7,19 @@
 
 import SwiftUI
 
-struct Animator: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-#Preview {
-    Animator()
+class Animator: ObservableObject {
+    // Animation Properties
+    @Published var startAnimation: Bool = false
+    // Initial Plane Position
+    @Published var initialPlanePosition: CGRect = .zero
+    // Payment Status
+    @Published var currentPaymentStatus: PaymentStatus = .initiated
+    // Ring Status
+    @Published var ringAnimation: [Bool] = [false, false]
+    // Loading Status
+    @Published var showLoadingView: Bool = false
+    // Cloud View Status
+    @Published var showClouds: Bool = false
+    // Final View Status
+    @Published var showFinalView: Bool = false
 }

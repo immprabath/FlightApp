@@ -7,12 +7,20 @@
 
 import SwiftUI
 
-struct PaymentStatus: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+enum PaymentStatus: String, CaseIterable {
+    case started = "Connected..."
+    case initiated = "Secure payment..."
+    case finished = "Purchased"
+    
+    var symbolImage: String {
+        switch self {
+            case .started:
+                return "wifi"
+            case .initiated:
+                return "checkmark.shield"
+            case .finished:
+                return "checkmark"
+        }
     }
 }
 
-#Preview {
-    PaymentStatus()
-}
